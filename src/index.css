@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.blur-background {
+  backdrop-filter: blur(8px);
+}
+
+.backdrop-blur #main-content,
+.backdrop-blur footer {
+  filter: blur(000000);
+}
+
+.backdrop-blur::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Adjust the opacity as needed */
+  backdrop-filter: blur(1px);
+  z-index: 9;
+  pointer-events: none;
+}
+
+ @keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.7s forwards;
+}
+
+.slide-out {
+  animation: slideOut 400s forwards;
+} 
+
+.slide-in {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.slide-out {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.transition-transform {
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+}
