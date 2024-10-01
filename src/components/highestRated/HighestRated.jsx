@@ -1,4 +1,3 @@
-// eslint-disable-next-line react/prop-types
 const HighestRated = ({ titles }) => {
   return (
     <div>
