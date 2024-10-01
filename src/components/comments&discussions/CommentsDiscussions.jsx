@@ -3,7 +3,7 @@ import Vector from "../../assets/EpisodeRecap/u.png"
 import Vectors from "../../assets/EpisodeRecap/n.png"
 import rateimage from "../../assets/EpisodeRecap/star2.png"
 import Profile from "../../assets/EpisodeRecap/user.png"
-import OtherRecaps from "../otherRecaps/OtherRecaps"
+import OtherRecaps from "../episodeRecaps/OtherRecaps"
 
 const CommentsDiscussions = () => {
   const [selected, setSelected] = useState("comments")

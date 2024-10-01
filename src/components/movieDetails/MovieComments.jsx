@@ -1,8 +1,8 @@
 import { useState } from "react"
-import Vector1 from "../../../assets/EpisodeRecap/u.png"
-import Vector2 from "../../../assets/EpisodeRecap/n.png"
-// import rateimage from "../../../assets/EpisodeRecap/star2.png"
-import Profile from "../../../assets/EpisodeRecap/user.png"
+import Vector1 from "../../assets/EpisodeRecap/u.png"
+import Vector2 from "../../assets/EpisodeRecap/n.png"
+// import rateimage from "../../assets/EpisodeRecap/star2.png"
+import Profile from "../../assets/EpisodeRecap/user.png"
 // import Recap from "../../otherRecaps/otherRecaps"
 
 function MoviesComments() {

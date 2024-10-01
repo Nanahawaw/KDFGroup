@@ -5,7 +5,7 @@ import image2 from "../../assets/trendingNow/image2.png"
 import image3 from "../../assets/trendingNow/image3.png"
 import image4 from "../../assets/trendingNow/image4.png"
 import image5 from "../../assets/trendingNow/image5.png"
-import MoviesComments from "./movieComments/MovieComments"
+import MoviesComments from "./MovieComments"
 
 const trendingItems = [
   { image: image1, title: "Hierarchy", rate: "Ratings: 8/10" },
