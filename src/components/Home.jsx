@@ -4,7 +4,7 @@ import arrow from "../assets/arrow.png"
 import HighestRatedBanner from "./highestRated/HighestRatedBanner"
 import highestRatedTitles from "./highestRated/titles"
 import EpisodeRecapsBanner from "./episodeRecaps/EpisodeRecapsBanner"
-import TrendingNow from "./trendingNow/TrendingNow"
+import TrendingNowBanner from "./trendingNow/TrendingNowBanner"
 
 function Home() {
   return (
@@ -12,7 +12,7 @@ function Home() {
       <Carousel />
       <div className="mb-3 mt-5">
         <div className="shadow-md flex flex-col justify-center items-center mt-3 mb-5 ">
-          <TrendingNow />
+          <TrendingNowBanner />
         </div>
         <div className="m-2  flex flex-col justify-center items-center  ">
           <HighestRatedBanner titles={highestRatedTitles} />
