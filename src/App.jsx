@@ -7,7 +7,7 @@ import Home from "./components/Home"
 import AuthPage from "./authentication/AuthPage"
 import HighestRatedPage from "./components/highestRated/HighestRatedPage"
 import AboutUs from "./components/AboutUs"
-import Community from "./components/community/Community"
+import CommunityPage from "./components/community/CommunityPage"
 import EpisodeRecapsPage from "./components/episodeRecaps/EpisodeRecapsPage"
 import TrendingNowPage from "./components/trendingNow/TrendingNowPage"
 
@@ -24,7 +24,7 @@ function App() {
             <Route path="/TrendingNow" element={<TrendingNowPage />} />
             <Route path="/EpisodeRecaps" element={<EpisodeRecapsPage />} />
             <Route path="/AboutUs" element={<AboutUs />} />
-            <Route path="/Community" element={<Community />} />
+            <Route path="/Community" element={<CommunityPage />} />
             <Route path="/HighestRated" element={<HighestRatedPage />} />
           </Routes>
         </div>
