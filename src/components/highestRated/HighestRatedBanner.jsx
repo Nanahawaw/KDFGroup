@@ -1,4 +1,5 @@
-const HighestRated = ({ titles }) => {
+/* eslint-disable react/prop-types */
+const HighestRatedBanner = ({ titles }) => {
   return (
     <div>
       <h2 className="md:mb-4 font-bold text-[27px] md:text-[37px w-full leading-[47.66px]">
@@ -18,4 +19,4 @@ const HighestRated = ({ titles }) => {
   )
 }
 
-export default HighestRated
+export default HighestRatedBanner

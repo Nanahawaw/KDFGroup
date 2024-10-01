@@ -1,7 +1,7 @@
 import Carousel from "./carousel/Carousel"
 import Image from "../assets/image 3.png"
 import arrow from "../assets/arrow.png"
-import HighestRated from "./highestRated/HighestRated"
+import HighestRatedBanner from "./highestRated/HighestRatedBanner"
 import highestRatedTitles from "./highestRated/titles"
 import EpisodeRecapsBanner from "./episodeRecaps/EpisodeRecapsBanner"
 import TrendingNow from "./trendingNow/TrendingNow"
@@ -15,7 +15,7 @@ function Home() {
           <TrendingNow />
         </div>
         <div className="m-2  flex flex-col justify-center items-center  ">
-          <HighestRated titles={highestRatedTitles} />
+          <HighestRatedBanner titles={highestRatedTitles} />
         </div>
       </div>
       <div className=" md:flex justify-between bg-[#CBD5F0] font-sans md:h-[428px]  md:p-0">

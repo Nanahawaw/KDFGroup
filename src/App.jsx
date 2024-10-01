@@ -4,10 +4,11 @@ import Footer from "./components/Footer"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import NavBar from "./components/NabBar"
 import Home from "./components/Home"
-import HighestRated from "./pages/HighestRated"
+// import HighestRated from "./components/highestRated/HighestRatedPage"
 import AuthPage from "./authentication/AuthPage"
 import TrendingNow from "./pages/TrendingNow"
 // import EpisodeRecaps from "./pages/EpisodeRecaps"
+import HighestRatedPage from "./components/highestRated/HighestRatedPage"
 import AboutUs from "./pages/AboutUs"
 import Community from "./pages/Community"
 import EpisodeRecapsPage from "./components/episodeRecaps/EpisodeRecapsPage"
@@ -26,7 +27,7 @@ function App() {
             <Route path="/EpisodeRecaps" element={<EpisodeRecapsPage />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Community" element={<Community />} />
-            <Route path="/HighestRated" element={<HighestRated />} />
+            <Route path="/HighestRated" element={<HighestRatedPage />} />
           </Routes>
         </div>
         <Footer />
