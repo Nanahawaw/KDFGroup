@@ -3,7 +3,7 @@ import Image from "../assets/image 3.png"
 import arrow from "../assets/arrow.png"
 import HighestRated from "./highestRated/HighestRated"
 import highestRatedTitles from "./highestRated/titles"
-import EpisodeRecaps from "./episodeRecaps/EpisodeRecaps"
+import EpisodeRecapsBanner from "./episodeRecaps/EpisodeRecapsBanner"
 import TrendingNow from "./trendingNow/TrendingNow"
 
 function Home() {
@@ -42,7 +42,7 @@ function Home() {
         </div>
       </div>
       <div className="m-0 pr-[x]">
-        <EpisodeRecaps />
+        <EpisodeRecapsBanner />
       </div>
     </div>
   )
