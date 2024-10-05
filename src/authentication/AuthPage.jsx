@@ -6,7 +6,7 @@ import LogIn from "./LogIn"
 import EmailVerification from "./EmailVerification"
 import ForgotPassword from "./ForgotPassword"
 
-const AuthPage = () => {
+function AuthPage() {
   const location = useLocation()
   const initialPage = location.state?.pageString || "signIn"
   const [page, setPage] = useState(initialPage)

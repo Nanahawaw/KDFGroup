@@ -5,7 +5,7 @@ import rateimage from "../../assets/EpisodeRecap/star2.png"
 import Profile from "../../assets/EpisodeRecap/user.png"
 import OtherRecaps from "../episodeRecaps/OtherRecaps"
 
-const CommentsDiscussions = () => {
+function CommentsDiscussions() {
   const [selected, setSelected] = useState("comments")
   const [showAll, setShowAll] = useState(false)
   const [replyText, setReplyText] = useState("")

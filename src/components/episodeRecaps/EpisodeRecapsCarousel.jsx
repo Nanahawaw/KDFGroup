@@ -26,7 +26,7 @@ const images = [
   },
 ]
 
-const EpisodeRecapsCarousel = () => {
+function EpisodeRecapsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef(null)
 

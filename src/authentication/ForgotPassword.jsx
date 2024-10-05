@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "../assets/Group .png"
 
-const ForgotPassword = () => {
+function ForgotPassword() {
   const [passwordForgotten, setPasswordForgotten] = useState(false)
   const [email, setEmail] = useState("")
   const [newPassword, setNewPassword] = useState("")

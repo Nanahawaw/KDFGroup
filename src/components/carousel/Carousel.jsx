@@ -67,7 +67,7 @@ const images = [
   },
 ]
 
-const Carousel = () => {
+function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [animationClass, setAnimationClass] = useState("slide-in")
 

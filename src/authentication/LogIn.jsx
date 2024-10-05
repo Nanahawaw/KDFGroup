@@ -5,7 +5,7 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons"
 import logo from "../assets/Group .png"
 
 // eslint-disable-next-line react/prop-types
-const LogIn = ({ nextPage }) => {
+function LogIn({ nextPage }) {
   const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

@@ -4,7 +4,7 @@ import image3 from "../../assets/trendingNow/image3.png"
 import image4 from "../../assets/trendingNow/image4.png"
 import image5 from "../../assets/trendingNow/image5.png"
 
-const TrendingNowBanner = () => {
+function TrendingNowBanner() {
   const trendingItems = [
     { image: image1 },
     { image: image2 },

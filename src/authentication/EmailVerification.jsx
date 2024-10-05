@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "../assets/Group .png"
 
-const EmailVerification = () => {
+function EmailVerification() {
   const [code, setCode] = useState(new Array(6).fill(""))
   const [isVerified, setIsVerified] = useState(false)
   const navigate = useNavigate()

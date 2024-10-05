@@ -4,7 +4,7 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons"
 import logo from "../assets/Group .png"
 
 // eslint-disable-next-line react/prop-types
-const SignIn = ({ nextPage }) => {
+function SignIn({ nextPage }) {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

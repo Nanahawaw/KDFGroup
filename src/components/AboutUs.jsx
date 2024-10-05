@@ -1,4 +1,4 @@
-const AboutUs = () => {
+function AboutUs() {
   return (
     <div className="mt-20">
       <h1>About Us</h1>

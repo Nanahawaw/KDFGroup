@@ -1,6 +1,6 @@
 import MovieDetails from "../movieDetails/MovieDetails"
 
-const TrendingNowPage = () => {
+function TrendingNowPage() {
   return (
     <div className="mt-20">
       <MovieDetails />

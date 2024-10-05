@@ -7,7 +7,7 @@ import octicon from "../assets/octicon.png"
 import assets from "../assets/Group .png"
 import { useNavigate } from "react-router-dom"
 
-const NavBar = () => {
+function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const dropdownRef = useRef(null)
   const navigate = useNavigate()
