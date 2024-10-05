@@ -1,6 +1,6 @@
 import assets from "../assets/image-8.png"
 
-const AuthBanner = () => {
+function AuthBanner() {
   return (
     <div className="relative w-full h-full overflow-hidden">
       <img alt="auth-banner-image" src={assets} className="w-full h-full object-cover" />

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons"
 
-const Footer = () => {
+function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (

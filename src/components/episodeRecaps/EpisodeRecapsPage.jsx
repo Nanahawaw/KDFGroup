@@ -1,8 +1,8 @@
-import image1 from "../assets/EpisodeRecap/Group 1326.png"
-import image2 from "../assets/EpisodeRecap/IMG_6345 1.png"
-import image3 from "../assets/EpisodeRecap/IMG_6347 1.png"
-import image4 from "../assets/EpisodeRecap/IMG_6348 1.png"
-import CommentsDiscussions from "../components/comments&discussions/CommentsDiscussions"
+import image1 from "../../assets/EpisodeRecap/Group 1326.png"
+import image2 from "../../assets/EpisodeRecap/IMG_6345 1.png"
+import image3 from "../../assets/EpisodeRecap/IMG_6347 1.png"
+import image4 from "../../assets/EpisodeRecap/IMG_6348 1.png"
+import CommentsDiscussions from "../comments&discussions/CommentsDiscussions"
 const locations = [
   {
     image: image1,
@@ -22,7 +22,7 @@ const locations = [
   },
 ]
 
-function EpisodeRecaps() {
+function EpisodeRecapsPage() {
   return (
     <div className="mt-20">
       <div className="flex justify-between md:px-[70px] pt-4 font-sans px-4">
@@ -35,7 +35,9 @@ function EpisodeRecaps() {
       </div>
       <div className="pt-9">
         {locations.map((location, index) => (
-          <div key={index} position={[location.lat, location.lon]}>
+          //  <div key={index} position={[location.lat, location.lon]}> *** We had an error on the position property.
+          // Also location would be an item of locations(above array), but the location item obj does not have lat or lon properties
+          <div key={index}>
             <div>
               <div className="text-center px-4 md:px-[70px]">
                 <img src={location.image} alt={location.text} className="w-full  object-cover" />
@@ -57,4 +59,4 @@ function EpisodeRecaps() {
   )
 }
 
-export default EpisodeRecaps
+export default EpisodeRecapsPage

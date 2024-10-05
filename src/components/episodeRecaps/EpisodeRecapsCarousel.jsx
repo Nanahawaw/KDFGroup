@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react"
-import slider0 from "../assets/episode_shot.svg"
-import slider1 from "../assets/episode_shot2.svg"
-import slider2 from "../assets/episode_shot3.svg"
-import leftArrow from "../assets/left-arrow.png"
-import rightArrow from "../assets/right-arrow.png"
+import slider0 from "../../assets/episode_shot.svg"
+import slider1 from "../../assets/episode_shot2.svg"
+import slider2 from "../../assets/episode_shot3.svg"
+import leftArrow from "../../assets/left-arrow.png"
+import rightArrow from "../../assets/right-arrow.png"
 
 const images = [
   {
@@ -26,7 +26,7 @@ const images = [
   },
 ]
 
-const Carousel = () => {
+function EpisodeRecapsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef(null)
 
@@ -124,4 +124,4 @@ const Carousel = () => {
   )
 }
 
-export default Carousel
+export default EpisodeRecapsCarousel

@@ -1,10 +1,10 @@
 import Carousel from "./carousel/Carousel"
 import Image from "../assets/image 3.png"
 import arrow from "../assets/arrow.png"
-import HighestRated from "./highestRated/HighestRated"
+import HighestRatedBanner from "./highestRated/HighestRatedBanner"
 import highestRatedTitles from "./highestRated/titles"
-import EpisodeRecaps from "./episodeRecaps/EpisodeRecaps"
-import TrendingNow from "./trendingNow/TrendingNow"
+import EpisodeRecapsBanner from "./episodeRecaps/EpisodeRecapsBanner"
+import TrendingNowBanner from "./trendingNow/TrendingNowBanner"
 
 function Home() {
   return (
@@ -12,10 +12,10 @@ function Home() {
       <Carousel />
       <div className="mb-3 mt-5">
         <div className="shadow-md flex flex-col justify-center items-center mt-3 mb-5 ">
-          <TrendingNow />
+          <TrendingNowBanner />
         </div>
         <div className="m-2  flex flex-col justify-center items-center  ">
-          <HighestRated titles={highestRatedTitles} />
+          <HighestRatedBanner titles={highestRatedTitles} />
         </div>
       </div>
       <div className=" md:flex justify-between bg-[#CBD5F0] font-sans md:h-[428px]  md:p-0">
@@ -42,7 +42,7 @@ function Home() {
         </div>
       </div>
       <div className="m-0 pr-[x]">
-        <EpisodeRecaps />
+        <EpisodeRecapsBanner />
       </div>
     </div>
   )

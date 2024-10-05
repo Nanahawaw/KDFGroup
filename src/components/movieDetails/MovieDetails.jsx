@@ -5,7 +5,8 @@ import image2 from "../../assets/trendingNow/image2.png"
 import image3 from "../../assets/trendingNow/image3.png"
 import image4 from "../../assets/trendingNow/image4.png"
 import image5 from "../../assets/trendingNow/image5.png"
-import MoviesComments from "./movieComments/MovieComments"
+import CommentsDiscussions from "../comments&discussions/CommentsDiscussions"
+// import MoviesComments from "./MovieComments"
 
 const trendingItems = [
   { image: image1, title: "Hierarchy", rate: "Ratings: 8/10" },
@@ -16,7 +17,7 @@ const trendingItems = [
   { image: image3, title: "Item 6", rate: "Ratings: 8/10" },
 ]
 
-const MovieDetails = () => {
+function MovieDetails() {
   return (
     <div className="container mx-auto p-4 font-sans">
       <div className=" grid md:flex justify-between pt-3">
@@ -47,7 +48,8 @@ const MovieDetails = () => {
                 Ratings:
               </p>
               <div className="border">
-                <MoviesComments />
+                {/* <MoviesComments /> */}
+                <CommentsDiscussions />
               </div>
             </div>
           </div>
