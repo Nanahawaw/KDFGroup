@@ -10,6 +10,7 @@ import AboutUs from "./components/AboutUs"
 import CommunityPage from "./components/community/CommunityPage"
 import EpisodeRecapsPage from "./components/episodeRecaps/EpisodeRecapsPage"
 import TrendingNowPage from "./components/trendingNow/TrendingNowPage"
+import UserProfile from "./pages/UserProfile"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Community" element={<CommunityPage />} />
             <Route path="/HighestRated" element={<HighestRatedPage />} />
+            <Route path="/UserProfile" element={<UserProfile />} />
           </Routes>
         </div>
         <Footer />
