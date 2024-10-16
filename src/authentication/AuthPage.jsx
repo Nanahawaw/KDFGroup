@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import AuthBanner from "./AuthBanner"
 import SignIn from "./SignIn"
@@ -10,6 +10,13 @@ function AuthPage() {
   const location = useLocation()
   const initialPage = location.state?.pageString || "signIn"
   const [page, setPage] = useState(initialPage)
+
+  // UseEffect to handle changes in the location state
+  useEffect(() => {
+    if (location.state?.pageString) {
+      setPage(location.state.pageString)
+    }
+  }, [location.state?.pageString])
 
   const renderPage = () => {
     switch (page) {

@@ -181,12 +181,12 @@ function LogIn({ nextPage }) {
           Sign in with Google
         </button>
         <p className="font-normal text-gray-500 mt-6 text-center">
-          Do not have an account?{" "}
+          Not registered yet?{" "}
           <span
             className="text-purple-500 font-semibold hover:bg-purple-700"
             onClick={handleSignIn}
           >
-            Sign in
+            Sign up
           </span>
         </p>
         <p className="font-normal text-gray-500 mt-2 text-center">

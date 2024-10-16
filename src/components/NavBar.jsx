@@ -92,7 +92,7 @@ function NavBar() {
                       className="w-[220px] h-[38px] border rounded-md hover:bg-[#DCE3F5]"
                       onClick={() => handleAuthNavigation("signIn")}
                     >
-                      Sign In
+                      Sign Up
                     </button>
                   </div>
                 </div>
