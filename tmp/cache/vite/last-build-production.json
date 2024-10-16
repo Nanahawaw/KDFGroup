@@ -1,7 +1,7 @@
 {
   "success": false,
-  "errors": "error Command \"vite\" not found.\n",
-  "timestamp": "2024-09-29 16:10:22",
+  "errors": "failed to load config from /Users/dianamc/dev/KDFGroup/vite.config.js\nerror during build:\nError [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /Users/dianamc/dev/KDFGroup/vite.config.js.timestamp-1729084635554-6393df1514e6e.mjs\n    at new NodeError (node:internal/errors:372:5)\n    at packageResolve (node:internal/modules/esm/resolve:954:9)\n    at moduleResolve (node:internal/modules/esm/resolve:1003:20)\n    at defaultResolve (node:internal/modules/esm/resolve:1218:11)\n    at ESMLoader.resolve (node:internal/modules/esm/loader:580:30)\n    at ESMLoader.getModuleJob (node:internal/modules/esm/loader:294:18)\n    at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:80:40)\n    at link (node:internal/modules/esm/module_job:78:36)\n",
+  "timestamp": "2024-10-16 14:17:15",
   "vite_ruby": "3.8.0",
-  "digest": "5e45518499081304c6563e0cf096298fb1be3bd2"
+  "digest": "d1b491e25e60a4cf45d928e873ba6aa9bad5ce05"
 }
