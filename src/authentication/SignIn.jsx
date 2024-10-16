@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGoogle } from "@fortawesome/free-brands-svg-icons"
 import logo from "../assets/Group .png"
@@ -8,25 +8,122 @@ function SignIn({ nextPage }) {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [formErrors, setFormErrors] = useState({
+    email: "",
+    password: "",
+    backend: "",
+  })
 
-  const handleSubmit = () => {
-    // const userData = {
-    //   username: username,
-    //   email: email,
-    //   password: password,
-    // }
+  // Debounce timer states
+  const emailTimer = useRef(null)
+  const passwordTimer = useRef(null)
 
-    // before the API, how do we handle form errors?
+  // Email validation logic
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return "Please enter a valid email address."
+    }
+    return ""
+  }
 
-    // signInApi(userData)
-    // if response is successful
-    // add response data to local State -- how do we store the local state?
-    // clear form
-    setUsername("")
-    setEmail("")
-    setPassword("")
-    // navigate("/Home") -not yet as we need the email verification
-    nextPage("emailVerification")
+  // Password validation logic
+  const validatePassword = (password) => {
+    if (password.length < 8) {
+      return "Password too short, must be at least 8 characters."
+    }
+    return ""
+  }
+
+  // Debounced Email Validation Effect
+  useEffect(() => {
+    if (email) {
+      // Clear the existing timer
+      if (emailTimer.current) clearTimeout(emailTimer.current)
+
+      // Set a new timer for validation after 500ms of no typing
+      emailTimer.current = setTimeout(() => {
+        const emailError = validateEmail(email)
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          email: emailError,
+        }))
+      }, 500)
+    }
+
+    // Cleanup function to clear the timer when component unmounts or email changes
+    return () => {
+      if (emailTimer.current) clearTimeout(emailTimer.current)
+    }
+  }, [email])
+
+  // Debounced Password Validation Effect
+  useEffect(() => {
+    if (password) {
+      // Clear the existing timer
+      if (passwordTimer.current) clearTimeout(passwordTimer.current)
+
+      // Set a new timer for validation after 500ms of no typing
+      passwordTimer.current = setTimeout(() => {
+        const passwordError = validatePassword(password)
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          password: passwordError,
+        }))
+      }, 500)
+    }
+    // Cleanup function to clear the timer when component unmounts or email changes
+    return () => {
+      if (passwordTimer.current) clearTimeout(passwordTimer.current)
+    }
+  }, [password])
+
+  const handleSubmit = async () => {
+    const emailError = validateEmail(email)
+    const passwordError = validatePassword(password)
+
+    if (emailError || passwordError) {
+      // Update errors if any are found
+      setFormErrors({
+        email: emailError,
+        password: passwordError,
+      })
+      return
+    }
+
+    // No client-side errors, proceed with API call
+    const userData = {
+      email: email,
+      password: password,
+    }
+
+    try {
+      // Mock backend API call to create a new user
+      const response = await fakeApiSignUp(userData) // Replace with actual API
+
+      if (!response.success) {
+        // Backend error (email already exists in database)
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          backend: "This email is already registered. Please log in or reset password",
+        }))
+      } else {
+        // API call successful, navigate to home page
+        // add response data to local State -- how do we store the local state?
+        setUsername("")
+        setEmail("")
+        setPassword("")
+        // navigate("/Home") -not yet as we need the email verification
+        nextPage("emailVerification")
+      }
+    } catch (error) {
+      // Handle any unexpected backend errors
+      console.error(error)
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        backend: "An error occurred. Please try again later.",
+      }))
+    }
   }
 
   const handleLogIn = () => {
@@ -36,7 +133,7 @@ function SignIn({ nextPage }) {
 
   return (
     <div className="w-max flex items-center justify-center bg-white p-8">
-      <div className="w-[430px] h-[752px] flex flex-col ">
+      <form className="w-[430px] h-[752px] flex flex-col ">
         <div className="flex justify-flex-start mb-8">
           <img src={logo} alt="K Logo" className="w-12 h-12" />
         </div>
@@ -62,6 +159,7 @@ function SignIn({ nextPage }) {
             setEmail(e.target.value)
           }}
         />
+        {formErrors.email && <p className="text-red-500 mb-3">{formErrors.email}</p>}
         <p className="mb-1 font-semibold text-lg">Password*</p>
         <input
           type="password"
@@ -72,6 +170,7 @@ function SignIn({ nextPage }) {
             setPassword(e.target.value)
           }}
         />
+        {formErrors.password && <p className="text-red-500 mb-3">{formErrors.password}</p>}
         <p className="mb-4 text-16 text-gray-500 font-light text-base">
           Must be at least 8 characters
         </p>
@@ -95,7 +194,7 @@ function SignIn({ nextPage }) {
             Log in
           </span>
         </p>
-      </div>
+      </form>
     </div>
   )
 }
