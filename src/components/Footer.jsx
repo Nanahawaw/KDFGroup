@@ -5,9 +5,9 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#C4B1EE] p-1 text-[#000000] mt-auto font-sans w-[100vw]">
-      <div className="md:flex md:justify-between p-7 md:p-11">
-        <div className="grid gap-[10px] w-[292px] h-[176.6px] text-[#1A202C]">
+    <footer className="bg-[#C4B1EE] p-1 text-[#000000] mt-auto font-sans w-[100hw]">
+      <div className="md:flex md:justify-between p-7 md:p-11  justify-center items-center">
+        <div className="grid gap-[10px] w-[292px] h-[176.6px] text-[#1A202C] justify-center items-center">
           <div className="font-bold">KGFG</div>
           <div>Experience the best of K-dramas with fellow K-darama lovers</div>
           <div className="flex gap-5">
