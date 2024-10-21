@@ -15,9 +15,9 @@ import UserProfile from "./pages/UserProfile"
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="min-h-screen grid m-0">
         <NavBar />
-        <div id="main-content" className="flex flex-grow">
+        <div id="main-content" className="m-0">
           <Routes>
             <Route path="/" element={<Navigate to="/Home" replace />} />
             <Route path="/Home" element={<Home />} />

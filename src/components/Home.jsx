@@ -41,7 +41,7 @@ function Home() {
           </button>
         </div>
       </div>
-      <div className="m-0 pr-[x]">
+      <div className="m-0">
         <EpisodeRecapsBanner />
       </div>
     </div>
