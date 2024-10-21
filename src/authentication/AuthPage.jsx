@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import AuthBanner from "./AuthBanner"
-import SignIn from "./SignIn"
+import SignUp from "./SignUp"
 import LogIn from "./LogIn"
 import EmailVerification from "./EmailVerification"
 import ForgotPassword from "./ForgotPassword"
@@ -21,7 +21,7 @@ function AuthPage() {
   const renderPage = () => {
     switch (page) {
       case "signIn":
-        return <SignIn nextPage={setPage} />
+        return <SignUp nextPage={setPage} />
       case "logIn":
         return <LogIn nextPage={setPage} />
       case "emailVerification":

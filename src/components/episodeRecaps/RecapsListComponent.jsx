@@ -22,20 +22,17 @@ function RecapsListComponent({ recaps }) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
-    <div className="flex flex-col md:flex-row justify-between">
-      <div className="md:w-3/4">
+    <div className="flex flex-col justify-between gap-4">
+      <div className="h-screen">
         {currentRecaps.map((recap, index) => (
-          <div key={index} className="mb-6">
-            <div className="flex space-x-4">
-              <img
-                src={recap.image}
-                alt={recap.title}
-                className="w-48 h-32 object-cover rounded-md"
-              />
-              <div>
+          <div key={index} className="mb-10  max-h-80 flex flex-row justify-evenly">
+            <div className="flex space-x-4 ">
+              <img src={recap.image} alt={recap.title} className="object-cover rounded-md" />
+              <div className="flex flex-col max-w-3xl">
+                <p className="text-sm self-end text-gray-500">{recap.date}</p>
                 <h3 className="text-xl font-bold mb-1">{recap.title}</h3>
-                <p className="text-sm text-gray-500">{recap.date}</p>
-                <p className="text-gray-700">{recap.description}</p>
+                <h4 className="text-l font-bold mb-1">{recap.episodes}</h4>
+                <p className="text-gray-700 mt-4 text-clip">{recap.description}</p>
               </div>
             </div>
           </div>
@@ -46,13 +43,19 @@ function RecapsListComponent({ recaps }) {
             <button
               key={number}
               onClick={() => paginate(number)}
-              className={`px-4 py-2 mx-1 rounded-lg ${
-                currentPage === number ? "bg-purple-600 text-white" : "bg-gray-200"
+              className={`px-4 py-2 mx-1 ${
+                currentPage === number ? "text-black border-b-4 border-purple-700" : "text-gray-500"
               }`}
             >
               {number}
             </button>
           ))}
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            className="px-4 py-2 mx-1 text-xs text-gray-500"
+          >
+            next
+          </button>
         </div>
       </div>
     </div>
