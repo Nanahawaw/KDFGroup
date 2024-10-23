@@ -52,7 +52,7 @@ function NavBar() {
         <div className="hidden leading-[22.4px] sm:gap-[12px] md:text-[15px] lg:flex lg:gap-[75px] lg:text-[16px]">
           <Link to="/TrendingNow">Trending Now</Link>
           <Link to="/Community">Community</Link>
-          <Link to="/EpisodeRecaps">Episode Recaps</Link>
+          <Link to="/RecapsPage">Episode Recaps</Link>
           <Link to="/AboutUs">About Us</Link>
         </div>
         <div className="hidden items-center gap-5 lg:flex">
@@ -146,7 +146,7 @@ function NavBar() {
                 Trending Now
               </Link>
               <Link
-                to="/EpisodeRecaps"
+                to="/RecapsPage"
                 className="block py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
