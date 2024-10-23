@@ -1,12 +1,11 @@
-import { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import logo from "../assets/Group .png";
 
-// eslint-disable-next-line react/prop-types
-function LogIn({ nextPage }) {
-  const navigate = useNavigate();
+function SignUp({ nextPage }) {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState({
@@ -99,21 +98,24 @@ function LogIn({ nextPage }) {
     };
 
     try {
-      // Mock backend API call
-      const response = await fakeApiLogin(userData); // Replace with actual API
+      // Mock backend API call to create a new user
+      const response = await fakeApiSignUp(userData); // Replace with actual API
 
       if (!response.success) {
-        // Backend error (email and password mismatch)
+        // Backend error (email already exists in database)
         setFormErrors((prevErrors) => ({
           ...prevErrors,
-          backend: "Email and password do not match. Please try again.",
+          backend:
+            "This email is already registered. Please log in or reset password",
         }));
       } else {
         // API call successful, navigate to home page
         // add response data to local State -- how do we store the local state?
+        setUsername("");
         setEmail("");
         setPassword("");
-        navigate("/Home");
+        // navigate("/Home") -not yet as we need the email verification
+        nextPage("emailVerification");
       }
     } catch (error) {
       // Handle any unexpected backend errors
@@ -125,14 +127,9 @@ function LogIn({ nextPage }) {
     }
   };
 
-  const handleSignIn = () => {
-    // render LogIn Page
-    nextPage("signIn"); // this is the setPage callback from AuthPage
-  };
-
-  const handleForgotPassword = () => {
-    // render LogIn Page
-    nextPage("forgotPassword"); // this is the setPage callback from AuthPage
+  const handleLogIn = () => {
+    //render LogIn Page
+    nextPage("logIn"); // this is the setPage callback from AuthPage
   };
 
   return (
@@ -141,9 +138,18 @@ function LogIn({ nextPage }) {
         <div className="justify-flex-start mb-8 flex">
           <img src={logo} alt="K Logo" className="h-12 w-12" />
         </div>
-        <h2 className="mb-4 text-5xl font-semibold">Login</h2>
-        <p className="mb-8 text-lg text-gray-500">Welcome back!</p>
-
+        <h2 className="mb-4 text-5xl font-semibold">Sign Up</h2>
+        <p className="mb-8 text-lg text-gray-500">To get started</p>
+        <p className="mb-1 text-lg font-semibold">Username*</p>
+        <input
+          type="text"
+          value={username}
+          placeholder="Enter your username"
+          className="border-color:#ABABB5 mb-3 h-[52px] w-[430px] rounded border p-2 font-light"
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
         <p className="mb-1 text-lg font-semibold">Email*</p>
         <input
           type="text"
@@ -170,11 +176,14 @@ function LogIn({ nextPage }) {
         {formErrors.password && (
           <p className="mb-3 text-red-500">{formErrors.password}</p>
         )}
+        <p className="text-16 mb-4 text-base font-light text-gray-500">
+          Must be at least 8 characters
+        </p>
         <button
           onClick={handleSubmit}
-          className="mt-16 h-[52px] w-[430px] rounded-md bg-purple-500 px-6 py-2 font-semibold text-white hover:bg-purple-700 focus:outline-none"
+          className="mt-10 h-[52px] w-[430px] rounded-md bg-purple-500 px-6 py-2 font-semibold text-white hover:bg-purple-700 focus:outline-none"
         >
-          Login
+          Create Account
         </button>
 
         <button
@@ -182,24 +191,15 @@ function LogIn({ nextPage }) {
           className="border-color:#ABABB5 mt-1 h-[52px] w-[430px] rounded-md border px-6 py-2 font-semibold hover:bg-purple-700"
         >
           <FontAwesomeIcon icon={faGoogle} className="mr-2" />
-          Sign in with Google
+          Sign up with Google
         </button>
         <p className="mt-6 text-center font-normal text-gray-500">
-          Not registered yet?{" "}
+          Already have an account?{" "}
           <span
             className="font-semibold text-purple-500 hover:bg-purple-700"
-            onClick={handleSignIn}
+            onClick={handleLogIn}
           >
-            Sign up
-          </span>
-        </p>
-        <p className="mt-2 text-center font-normal text-gray-500">
-          Forgot password?{" "}
-          <span
-            className="font-semibold text-purple-500 hover:bg-purple-700"
-            onClick={handleForgotPassword}
-          >
-            Recover
+            Log in
           </span>
         </p>
       </form>
@@ -207,4 +207,4 @@ function LogIn({ nextPage }) {
   );
 }
 
-export default LogIn;
+export default SignUp;
