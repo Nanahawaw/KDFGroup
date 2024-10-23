@@ -1,4 +1,3 @@
-import RecapsListComponent from "./RecapsListPage";
 import TrendingNowSideColumn from "../trendingNow/TrendingNowSideColumn";
 
 // Recaps data
@@ -6,6 +5,7 @@ import hierarchyImage from "../../assets/EpisodeRecap/EPR-hierarchy.png";
 import franklySpeakingImage from "../../assets/EpisodeRecap/franklySpeakingImage.png";
 import atypicalFamilyImage from "../../assets/EpisodeRecap/atypicalFamilyImage.png";
 import connectionImage from "../../assets/EpisodeRecap/connectionImage.png";
+import RecapsListPage from "./RecapsListPage";
 
 const recaps = [
   {
@@ -45,22 +45,21 @@ const recaps = [
 
 function RecapsPageComponent() {
   return (
-    <div className="mx-auto p-4">
-      <div className="flex justify-between pt-3">
-        {/* Title and Grey Line */}
-        {/* <div className="flex items-center py-4 border-b border-gray-300 mb-6">
-        <h1 className="text-2xl font-bold">Episode Recaps</h1>
-        {/* <div className="flex-grow border-t border-gray-300 mx-4"></div> */}
-        {/* </div> */}
+    <div className="p-x-4 pt-20 md:pt-16">
+      <div className="flex flex-row">
+        <div className="">
+          {/* Title and Grey Line */}
+          <p className="my-2 text-[14px] font-bold md:text-[26px] lg:mx-2 lg:my-4 lg:text-[36px]">
+            Episode Recaps
+          </p>
 
-        {/* Main Content Section */}
-
-        <div className="w- bg-white p-4">
-          <RecapsListComponent recaps={recaps} />
+          <div className="border-r border-t border-gray-300 p-1 md:p-2 lg:p-4">
+            <RecapsListPage recaps={recaps} />
+          </div>
         </div>
 
-        {/* Trending Now Side Column (1/3 of the page) */}
-        <div className="p-4">
+        {/* Trending Now Side Column */}
+        <div className="px-4">
           <TrendingNowSideColumn />
         </div>
       </div>

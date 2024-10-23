@@ -7,32 +7,34 @@ const trendingItems = [
   { image: image1, title: "Hierarchy", rate: "Ratings: 8/10" },
   { image: image2, title: "A Typical Family", rate: "Ratings: 9/10" },
   { image: image3, title: "Lovely Runner", rate: "Ratings: 9/10" },
-  { image: image4, title: "Item 5", rate: "Ratings: 10/10" },
+  { image: image4, title: "Frankly Speaking", rate: "Ratings: 10/10" },
 ];
 
 function TrendingNowSideColumn() {
   return (
-    <div className="mt-2 md:pt-12">
-      <p className="mb-3 mt-1 w-full text-[20px] font-bold md:mb-9 md:mt-2 md:text-[37px] md:leading-[47.66px]">
+    <div className="my-4 ml-1 min-w-[109px] md:pt-12 lg:w-[390px]">
+      <p className="my-2 text-[14px] font-bold md:text-[26px] lg:mx-2 lg:my-4 lg:text-[36px]">
         Trending now
       </p>
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-6">
         {trendingItems.map((item, index) => (
           <div
             key={index}
-            className="w-px-330 h-px-339 border-gray-300' flex flex-col items-center border"
+            className="border-gray-300' flex flex-col items-center border"
           >
             <img
               src={item.image}
               alt=""
-              className="h-52 justify-center object-scale-down p-2"
+              className="justify-center object-scale-down lg:w-[390px]"
             />
-            <p className="w-full p-2 text-[14px] font-bold md:pl-5">
+            <p className="w-full p-2 text-[12px] font-bold lg:ml-4 lg:text-[16px]">
               {item.title}
             </p>
-            <p className="w-full pl-2 md:pl-5">{item.rate}</p>
-            <div className="flex w-full justify-start p-2 md:justify-end md:p-2">
-              <button className="rounded bg-[#7F56DA] p-1 text-white md:px-4 md:py-2">
+            <p className="w-full pl-2 text-[12px] lg:ml-4 lg:text-[16px]">
+              {item.rate}
+            </p>
+            <div className="flex w-full justify-end p-1 md:p-3">
+              <button className="lg:text-[16px]lg:w-[147px]rounded md:text-[12px rounded-md bg-[#7F56DA] p-1 text-[8px] text-white">
                 Join discussion
               </button>
             </div>

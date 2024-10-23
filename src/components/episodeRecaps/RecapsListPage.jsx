@@ -28,28 +28,32 @@ function RecapsListPage({ recaps }) {
   };
 
   return (
-    <div className="flex flex-col justify-between gap-4">
-      <div className="h-screen">
+    <div className="mt-2 flex flex-col justify-between gap-1 md:gap-2 lg:gap-6">
+      <div className="">
         {currentRecaps.map((recap, index) => (
           <div
             key={index}
-            className="mb-10 flex max-h-80 flex-row justify-evenly"
+            className="flex h-[91px] w-full cursor-pointer flex-row overflow-hidden lg:h-[417px]"
             onClick={handleEpisodeRecapClick}
           >
-            <div className="flex space-x-4">
-              <img
-                src={recap.image}
-                alt={recap.title}
-                className="rounded-md object-cover"
-              />
-              <div className="flex max-w-3xl flex-col">
-                <p className="self-end text-sm text-gray-500">{recap.date}</p>
-                <h3 className="mb-1 text-xl font-bold">{recap.title}</h3>
-                <h4 className="text-l mb-1 font-bold">{recap.episodes}</h4>
-                <p className="mt-4 text-clip text-gray-700">
-                  {recap.description}
-                </p>
-              </div>
+            <img
+              src={recap.image}
+              alt={recap.title}
+              className="h-[91px] w-[97px] object-contain md:h-[273px] md:w-[291px] lg:h-[338px] lg:w-[417px]"
+            />
+            <div className="ml-1 flex flex-col md:ml-2 lg:ml-4">
+              <p className="self-end text-[10px] text-gray-500 md:text-sm">
+                {recap.date}
+              </p>
+              <h3 className="mb-1 text-xs font-bold md:text-xl">
+                {recap.title}
+              </h3>
+              <h4 className="mb-1 text-xs font-bold md:text-xl">
+                {recap.episodes}
+              </h4>
+              <p className="text-xs text-gray-700 md:text-lg">
+                {recap.description}
+              </p>
             </div>
           </div>
         ))}
@@ -59,7 +63,7 @@ function RecapsListPage({ recaps }) {
             <button
               key={number}
               onClick={() => paginate(number)}
-              className={`mx-1 px-4 py-2 ${
+              className={`mx-1 px-4 py-2 text-xs md:text-xl ${
                 currentPage === number
                   ? "border-b-4 border-purple-700 text-black"
                   : "text-gray-500"
