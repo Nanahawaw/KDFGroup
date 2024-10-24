@@ -1,7 +1,7 @@
 import image1 from "../../assets/EpisodeRecap/TNSC-hierarchy.png";
 import image2 from "../../assets/EpisodeRecap/TNSC-atypical.png";
 import image3 from "../../assets/EpisodeRecap/TNSC-lovely.png";
-import image4 from "../../assets/EpisodeRecap/TNSC-Frankly.png";
+import image4 from "../../assets/EpisodeRecap/TNSC-frankly.png";
 
 const trendingItems = [
   { image: image1, title: "Hierarchy", rate: "Ratings: 8/10" },
