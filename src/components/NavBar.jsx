@@ -39,7 +39,7 @@ function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleAuthNavigation = (pageString) => {
-    navigate("/Auth", { state: { pageString } });
+    navigate(`/Auth?page=${pageString}`);
   };
 
   return (

@@ -78,6 +78,11 @@ function SignUp({ nextPage }) {
     };
   }, [password]);
 
+  // mock API function
+  const fakeApiSignUp = (data) => {
+    console.log(data);
+  };
+
   const handleSubmit = async () => {
     const emailError = validateEmail(email);
     const passwordError = validatePassword(password);
