@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import AuthBanner from "./AuthBanner";
 import SignUp from "./SignUp";
@@ -8,8 +8,13 @@ import ForgotPassword from "./ForgotPassword";
 
 function AuthPage() {
   const location = useLocation();
-  const initialPage = location.state?.pageString || "signIn";
+  const queryParams = new URLSearchParams(location.search);
+  const initialPage = queryParams.get("page") || "signIn";
   const [page, setPage] = useState(initialPage);
+
+  useEffect(() => {
+    setPage(initialPage); // Updates page whenever URL changes
+  }, [initialPage]);
 
   const renderPage = () => {
     switch (page) {
