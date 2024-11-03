@@ -1,41 +1,42 @@
-import Carousel from "./carousel/Carousel"
-import Image from "../assets/image 3.png"
-import arrow from "../assets/arrow.png"
-import HighestRatedBanner from "./highestRated/HighestRatedBanner"
-import highestRatedTitles from "./highestRated/titles"
-import EpisodeRecapsBanner from "./episodeRecaps/EpisodeRecapsBanner"
-import TrendingNowBanner from "./trendingNow/TrendingNowBanner"
+import Carousel from "./carousel/Carousel";
+import Image from "../assets/image 3.png";
+import arrow from "../assets/arrow.png";
+import HighestRatedBanner from "./highestRated/HighestRatedBanner";
+import highestRatedTitles from "./highestRated/titles";
+import EpisodeRecapsBanner from "./episodeRecaps/EpisodeRecapsBanner";
+import TrendingNowBanner from "./trendingNow/TrendingNowBanner";
 
 function Home() {
   return (
     <div>
       <Carousel />
       <div className="mb-3 mt-5">
-        <div className="shadow-md flex flex-col justify-center items-center mt-3 mb-5 ">
+        <div className="mb-5 mt-3 flex flex-col items-center justify-center shadow-md">
           <TrendingNowBanner />
         </div>
-        <div className="m-2  flex flex-col justify-center items-center  ">
+        <div className="m-2 flex flex-col items-center justify-center">
           <HighestRatedBanner titles={highestRatedTitles} />
         </div>
       </div>
-      <div className=" md:flex justify-between bg-[#CBD5F0] font-sans md:h-[428px]  md:p-0">
-        <div className="flex flex-col justify-center md:pl-9 p-2 md:p-0">
-          <h1 className="font-semibold md:text-[70px] md:leading-[95.33px] text-[30px] p-2">
+      <div className="justify-between bg-[#CBD5F0] font-sans md:flex md:h-[428px] md:p-0">
+        <div className="flex flex-col justify-center p-2 md:p-0 md:pl-9">
+          <h1 className="p-2 text-[30px] font-semibold md:text-[70px] md:leading-[95.33px]">
             Spill the tea on your favorite K-dramas!
           </h1>
-          <p className="md:leading-[34.05px] w-[351.05px]  text-[25px]  font-light p-2">
-            connect with fellow K-Drama enthusiasts and dive deep into your favorite shows.
+          <p className="w-[351.05px] p-2 text-[25px] font-light md:leading-[34.05px]">
+            connect with fellow K-Drama enthusiasts and dive deep into your
+            favorite shows.
           </p>
-          <button className=" md:flex justify-center bg-[#EFB7BA] h- w-[170px] p-2 md:w-[237.68px] h-[46.68px] items-center mt-3 rounded-full gap-1 hidden">
+          <button className="h- mt-3 hidden h-[46.68px] w-[170px] items-center justify-center gap-1 rounded-full bg-[#EFB7BA] p-2 md:flex md:w-[237.68px]">
             Join Community
             <img src={arrow} alt="" />
           </button>
         </div>
-        <div className="md:h-[410px] md:w-[800px] flex justify-center mb-1 items-center md:justify-end ">
+        <div className="mb-1 flex items-center justify-center md:h-[410px] md:w-[800px] md:justify-end">
           <img className="" src={Image} alt="" />
         </div>
-        <div className=" flex justify-center items-center">
-          <button className=" flex justify-center bg-[#EFB7BA] h- w-[170px] p-2 md:w-[237.68px] h-[46.68px] items-center mb-3 mt-3 rounded-full gap-1 md:hidden">
+        <div className="flex items-center justify-center">
+          <button className="h- mb-3 mt-3 flex h-[46.68px] w-[170px] items-center justify-center gap-1 rounded-full bg-[#EFB7BA] p-2 md:hidden md:w-[237.68px]">
             Join Community
             <img src={arrow} alt="" />
           </button>
@@ -45,7 +46,7 @@ function Home() {
         <EpisodeRecapsBanner />
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

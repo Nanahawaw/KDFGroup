@@ -9,7 +9,7 @@ import ForgotPassword from "./ForgotPassword";
 function AuthPage() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const initialPage = queryParams.get("page") || "signIn";
+  const initialPage = queryParams.get("page") || "signUp";
   const [page, setPage] = useState(initialPage);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function AuthPage() {
 
   const renderPage = () => {
     switch (page) {
-      case "signIn":
+      case "signUp":
         return <SignUp nextPage={setPage} />;
       case "logIn":
         return <LogIn nextPage={setPage} />;
