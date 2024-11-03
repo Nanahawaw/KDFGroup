@@ -132,7 +132,7 @@ function LogIn({ nextPage }) {
 
   const handleSignIn = () => {
     // render LogIn Page
-    nextPage("signIn"); // this is the setPage callback from AuthPage
+    nextPage("signUp"); // this is the setPage callback from AuthPage
   };
 
   const handleForgotPassword = () => {

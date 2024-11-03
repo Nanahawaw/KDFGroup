@@ -39,6 +39,7 @@ function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleAuthNavigation = (pageString) => {
+    setMobileMenuOpen(false);
     navigate(`/Auth?page=${pageString}`);
   };
 
@@ -93,7 +94,7 @@ function NavBar() {
                     </button>
                     <button
                       className="h-[38px] w-[220px] rounded-md border hover:bg-[#DCE3F5]"
-                      onClick={() => handleAuthNavigation("signIn")}
+                      onClick={() => handleAuthNavigation("signUp")}
                     >
                       Sign Up
                     </button>
@@ -121,13 +122,13 @@ function NavBar() {
               </button>
             </div>
             <nav className="mt-4">
-              <Link
+              {/* <Link
                 to="/"
                 className="block py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
-              </Link>
+              </Link> */}
               {/* <Link to="/HighestRated" className="block py-2" onClick={() => setMobileMenuOpen(false)}>
                 Highest Rated
               </Link> */}
@@ -161,10 +162,16 @@ function NavBar() {
               </Link>
               <div className="mt-4 flex justify-around">
                 <div className="flex w-[100%] justify-between">
-                  <button className="h-[38px] w-[120px] rounded-md border hover:bg-[#DCE3F5]">
-                    Sign In
+                  <button
+                    className="h-[38px] w-[120px] rounded-md border hover:bg-[#DCE3F5]"
+                    onClick={() => handleAuthNavigation("logIn")}
+                  >
+                    Login
                   </button>
-                  <button className="h-[38px] w-[120px] rounded-md border hover:bg-[#DCE3F5]">
+                  <button
+                    className="h-[38px] w-[120px] rounded-md border hover:bg-[#DCE3F5]"
+                    onClick={() => handleAuthNavigation("signUp")}
+                  >
                     Sign Up
                   </button>
                 </div>
