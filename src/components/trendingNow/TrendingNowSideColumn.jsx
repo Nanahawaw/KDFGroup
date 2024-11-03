@@ -4,10 +4,10 @@ import image3 from "../../assets/EpisodeRecap/TNSC-lovely.png";
 import image4 from "../../assets/EpisodeRecap/TNSC-frankly.png";
 
 const trendingItems = [
-  { image: image1, title: "Hierarchy", rate: "Ratings: 8/10" },
-  { image: image2, title: "A Typical Family", rate: "Ratings: 9/10" },
-  { image: image3, title: "Lovely Runner", rate: "Ratings: 9/10" },
-  { image: image4, title: "Frankly Speaking", rate: "Ratings: 10/10" },
+  { image: image1, title: "Hierarchy", rate: "Ratings: 3.5/5" },
+  { image: image2, title: "A Typical Family", rate: "Ratings: 4/5" },
+  { image: image3, title: "Lovely Runner", rate: "Ratings: 5/5" },
+  { image: image4, title: "Frankly Speaking", rate: "Ratings: 4/5" },
 ];
 
 function TrendingNowSideColumn() {

@@ -15,7 +15,7 @@ import kingTheLand from "../../assets/trendingNow/TN-KingTheLand.png";
 export const trendingNowDramas = [
   {
     title: "Hierarchy",
-    ratings: "8/10",
+    ratings: "3.5/5",
     id: "1",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -23,7 +23,7 @@ export const trendingNowDramas = [
   },
   {
     title: "The Atypical Family",
-    ratings: "9/10",
+    ratings: "4/5",
     id: "2",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -31,7 +31,7 @@ export const trendingNowDramas = [
   },
   {
     title: "Lovely Runner",
-    ratings: "9/10",
+    ratings: "5/5",
     id: "3",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -39,7 +39,7 @@ export const trendingNowDramas = [
   },
   {
     title: "Frankly Speaking",
-    ratings: "9/10",
+    ratings: "4/5",
     id: "4",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -47,7 +47,7 @@ export const trendingNowDramas = [
   },
   {
     title: "Captivating the King",
-    ratings: "9/10",
+    ratings: "4/5",
     id: "5",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -55,7 +55,7 @@ export const trendingNowDramas = [
   },
   {
     title: "Marry my Husband",
-    ratings: "9/10",
+    ratings: "4.5/5",
     id: "6",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -63,7 +63,7 @@ export const trendingNowDramas = [
   },
   {
     title: "Perfect Marriage Revenge",
-    ratings: "9/10",
+    ratings: "4/5",
     id: "7",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -71,7 +71,7 @@ export const trendingNowDramas = [
   },
   {
     title: "The Escape of the Seven",
-    ratings: "9/10",
+    ratings: "4/5",
     id: "8",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -79,7 +79,7 @@ export const trendingNowDramas = [
   },
   {
     title: "Pyramid Game",
-    ratings: "9/10",
+    ratings: "4/5",
     id: "9",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -87,7 +87,7 @@ export const trendingNowDramas = [
   },
   {
     title: "The Impossible Heir",
-    ratings: "9/10",
+    ratings: "4/5",
     id: "10",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -95,7 +95,7 @@ export const trendingNowDramas = [
   },
   {
     title: "Doctor Slump",
-    ratings: "9/10",
+    ratings: "4/5",
     id: "11",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
@@ -103,7 +103,7 @@ export const trendingNowDramas = [
   },
   {
     title: "King the Land",
-    ratings: "9/10",
+    ratings: "4/5",
     id: "12",
     description:
       "Lorem ipsum dolor sit amet consectetur. Cursus pretium pellentesque viverra neque feugcras in lorem a id auctor. ",
