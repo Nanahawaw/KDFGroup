@@ -23,14 +23,14 @@ function ForgotPassword() {
 
   return (
     <div className="w-max flex items-center justify-center bg-white p-8">
-      <div className="w-[430px] h-[752px] flex flex-col ">
+      <div className="w-full lg:max-w-[430px] h-[752px] flex flex-col justify-center ">
         <div className="flex justify-flex-start mb-8">
           <img src={logo} alt="K Logo" className="w-12 h-12" />
         </div>
-        <h2 className="text-4xl font-semibold mb-4">Forgot Password ?</h2>
+        <h2 className="text-[40px] leading-[56px] tracking-[0.8px] font-bold mb-2">Forgot Password ?</h2>
         {!passwordForgotten ? (
-          <div className="flex flex-col justify-center">
-            <p className="mb-10 text-center text-gray-500 text-lg">
+          <div className="flex flex-col justify-center ">
+            <p className="mb-10 font-semibold text-center w-full max-w-[363px] text-gray-500 text-lg">
               Enter your email bellow to reset your password.
             </p>
 
