@@ -139,7 +139,7 @@ function SignUp({ nextPage }) {
 
   return (
     <div className="flex w-max items-center justify-center bg-white p-8">
-      <form className="flex h-[752px] w-[430px] flex-col">
+      <form className="flex h-[752px] w-[430px] flex-col justify-center">
         <div className="justify-flex-start mb-8 flex">
           <img src={logo} alt="K Logo" className="h-12 w-12" />
         </div>

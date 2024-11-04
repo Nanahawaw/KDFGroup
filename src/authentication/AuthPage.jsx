@@ -32,14 +32,14 @@ function AuthPage() {
   };
 
   return (
-    <div className="relative flex h-full min-h-screen w-full">
+    <div className="relative flex flex-col lg:flex-row h-full min-h-screen w-full gap-3 xl:gap-10">
       {/* Left Section */}
-      <div className="relative flex w-[60%] flex-grow">
+      <div className="relative flex w-full lg:w-[60%] flex-grow">
         <AuthBanner />
       </div>
 
       {/* Right Section */}
-      <div className="flex w-[40%] items-center justify-center bg-white p-8">
+      <div className="flex w-full lg:w-[40%] items-center bg-white p-8">
         {renderPage()}
       </div>
     </div>
