@@ -32,7 +32,7 @@ function AuthPage() {
   };
 
   return (
-    <div className="relative flex flex-col lg:flex-row h-full min-h-screen w-full gap-3 xl:gap-10">
+    <div className="relative flex flex-col-reverse lg:flex-row h-full min-h-screen w-full gap-3 xl:gap-10">
       {/* Left Section */}
       <div className="relative flex w-full lg:w-[60%] flex-grow">
         <AuthBanner />
