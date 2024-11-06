@@ -50,7 +50,7 @@ function RecapsListPage({ recaps }) {
             <h4 className="mb-2 text-sm font-bold lg:text-lg">
               {recap.episodes}
             </h4>
-            <p className="text-xs text-gray-700 lg:text-base">
+            <p className="text-s text-gray-700 lg:text-base">
               {recap.description}
             </p>
           </div>
