@@ -45,21 +45,23 @@ const recaps = [
 
 function RecapsPageComponent() {
   return (
-    <div className="p-x-4 pt-20 md:pt-16">
-      <div className="flex flex-row">
-        <div className="">
-          {/* Title and Grey Line */}
+    <div className="px-4 pt-20 md:pt-16">
+      <div className="lg:flex lg:space-x-8">
+        {/* Main Content */}
+        <div className="w-full lg:w-3/4">
+          {/* Title */}
           <p className="my-2 text-[14px] font-bold md:text-[26px] lg:mx-2 lg:my-4 lg:text-[36px]">
             Episode Recaps
           </p>
 
+          {/* Recaps List */}
           <div className="border-r border-t border-gray-300 p-1 md:p-2 lg:p-4">
             <RecapsListPage recaps={recaps} />
           </div>
         </div>
 
-        {/* Trending Now Side Column */}
-        <div className="px-4">
+        {/* Trending Now Sidebar */}
+        <div className="hidden lg:block lg:w-1/4">
           <TrendingNowSideColumn />
         </div>
       </div>
