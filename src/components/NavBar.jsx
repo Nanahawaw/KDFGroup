@@ -50,25 +50,28 @@ function NavBar() {
           <img alt="" src={assets} />
           <h1>KDFG</h1>
         </Link>
-        <div className="hidden leading-[22.4px] sm:gap-[12px] md:text-[15px] lg:flex lg:gap-[75px] lg:text-[16px]">
+        <div className="hidden leading-[22.4px] p-1 sm:gap-[12px] md:text-[15px]  lg:flex lg:gap-[40px] lg:text-[15px]">
           <Link to="/TrendingNow">Trending Now</Link>
           <Link to="/Community">Community</Link>
           <Link to="/RecapsPage">Episode Recaps</Link>
           <Link to="/AboutUs">About Us</Link>
         </div>
-        <div className="hidden items-center gap-5 lg:flex">
           <div>
-            <form className="flex h-[38px] w-[230px] items-center justify-center gap-1 rounded-md border p-4 outline-none">
-              <img alt="" src={octicon} className="pl-2" />
-              <input
-                placeholder="Search"
-                className="border-none outline-none"
-              />
-            </form>
+          <form
+  className="flex md:flex-row-reverse h-[38px] w-full md:w-[210px] items-center justify-between  rounded-md md:border p-4 outline-none md:gap-1"
+>
+  <input
+    placeholder="Search"
+    className="w-full border-none  text-[15px] outline-none placeholder-transparent md:placeholder:text-black text-right md:text-left"
+  />
+  <img alt="" src={octicon} className="md:pl-1" />
+</form>
+
           </div>
+        <div className="hidden items-center gap- lg:flex">
           <div onClick={toggleDropdown} ref={dropdownRef} className="relative">
-            <div className="flex gap-16">
-              <button className="h-[48px] w-[148px] rounded-md border bg-[#7F56DA] text-white">
+            <div className="flex gap-1">
+              <button className="h-[48px] md:w-[148px] rounded-md border bg-[#7F56DA] text-white">
                 Get Started
               </button>
             </div>
@@ -116,22 +119,13 @@ function NavBar() {
         <div className="fixed inset-0 z-10 flex justify-end bg-gray-800 bg-opacity-50">
           <div className="w-[100%] bg-white p-6">
             <div className="flex items-center justify-between">
-              <h2>KDFG</h2>
+              <div className="flex justify-center items-center"> <img alt="" src={assets} />
+              <h2>KDFG</h2></div>
               <button onClick={() => setMobileMenuOpen(false)}>
                 <FontAwesomeIcon icon={faXmark} />
               </button>
             </div>
             <nav className="mt-4">
-              {/* <Link
-                to="/"
-                className="block py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </Link> */}
-              {/* <Link to="/HighestRated" className="block py-2" onClick={() => setMobileMenuOpen(false)}>
-                Highest Rated
-              </Link> */}
               <Link
                 to="/Community"
                 className="block py-2"
