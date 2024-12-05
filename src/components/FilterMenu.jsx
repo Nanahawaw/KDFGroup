@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-function FilterMenu({ isMenuOpen, toggleMenu, onFilterApply }) {
+function FilterMenu({ isMenuOpen, toggleMenu, onFilterChange }) {
   const [localFilters, setLocalFilters] = useState({
     type: "",
     genre: "",
@@ -14,96 +14,120 @@ function FilterMenu({ isMenuOpen, toggleMenu, onFilterApply }) {
   };
 
   const applyFilters = () => {
-    onFilterApply(localFilters); // Send filters to parent on apply
+    onFilterChange(localFilters);
   };
 
   return (
     <div
-      className={`fixed right-0 top-0 mt-20 h-full w-80 bg-white shadow-lg transition-transform duration-300 ${
-        isMenuOpen ? "translate-x-0" : "translate-x-full"
+      className={`fixed inset-x-0 top-36 z-50 mx-auto w-full max-w-7xl px-4 transition-all duration-300 ${
+        isMenuOpen
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none -translate-y-10 opacity-0"
       }`}
     >
-      <div className="flex items-center justify-between border-b p-4">
-        <h3 className="text-lg font-semibold">Filters</h3>
-        <button
-          onClick={toggleMenu}
-          className="rounded bg-gray-200 p-2 text-sm hover:bg-gray-300"
-        >
-          ✕
-        </button>
-      </div>
+      <div
+        className="relative w-full rounded-lg bg-white p-4 shadow-lg"
+        style={{
+          transition: "transform 0.3s ease, opacity 0.3s ease",
+        }}
+      >
+        {/* Header */}
+        <div className="mb-4 flex items-center justify-between border-b pb-2">
+          <h3 className="text-lg font-semibold">Filters</h3>
+          <button
+            onClick={toggleMenu}
+            className="rounded bg-gray-200 p-2 text-sm hover:bg-gray-300"
+          >
+            ✕
+          </button>
+        </div>
 
-      <div className="p-4">
-        <div className="mb-4">
-          <label className="block font-semibold">Type</label>
-          <select
-            value={localFilters.type}
-            onChange={(e) => handleFilterChange("type", e.target.value)}
-            className="w-full rounded border px-3 py-2"
-          >
-            <option value="">Select Type</option>
-            <option value="movie">Movie</option>
-            <option value="tv series">TV Series</option>
-            <option value="limited tv show">Limited TV Show</option>
-          </select>
-        </div>
-        <div className="mb-4">
-          <label className="block font-semibold">Genre</label>
-          <select
-            value={localFilters.genre}
-            onChange={(e) => handleFilterChange("genre", e.target.value)}
-            className="w-full rounded border px-3 py-2"
-          >
-            <option value="">Select Genre</option>
-            <option value="romance">Romance</option>
-            <option value="thriller">Thriller</option>
-            <option value="action">Action</option>
-            <option value="historical">Historical</option>
-            <option value="medical">Medical</option>
-            <option value="legal">Legal</option>
-            <option value="school">School</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="every day life">Every Day Life</option>
-          </select>
-        </div>
-        <div className="mb-4">
-          <label className="block font-semibold">Year</label>
-          <input
-            type="number"
-            value={localFilters.year}
-            onChange={(e) => handleFilterChange("year", e.target.value)}
-            className="w-full rounded border px-3 py-2"
-            placeholder="Enter Year"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block font-semibold">Rating</label>
-          <input
-            type="number"
-            step="0.1"
-            min="0"
-            max="5"
-            value={localFilters.rating}
-            onChange={(e) => handleFilterChange("rating", e.target.value)}
-            className="w-full rounded border px-3 py-2"
-            placeholder="Enter Rating (0-5)"
-          />
-        </div>
-        <button
-          onClick={applyFilters}
-          className="w-full rounded bg-purple-700 px-4 py-2 text-white"
+        {/* Filter Options */}
+        <div
+          className={`flex flex-col lg:flex-row lg:items-center lg:space-x-4`}
         >
-          Apply Filters
-        </button>
+          {/* Filter Type */}
+          <div className="mb-4 lg:mb-0 lg:flex-grow">
+            <label className="mb-1 block font-semibold">Type</label>
+            <select
+              value={localFilters.type}
+              onChange={(e) => handleFilterChange("type", e.target.value)}
+              className="w-full rounded-lg border px-3 py-2 shadow-sm"
+            >
+              <option value="">Select Type</option>
+              <option value="movie">Movie</option>
+              <option value="tv series">TV Series</option>
+              <option value="limited tv show">Limited TV Show</option>
+            </select>
+          </div>
+
+          {/* Filter Genre */}
+          <div className="mb-4 lg:mb-0 lg:flex-grow">
+            <label className="mb-1 block font-semibold">Genre</label>
+            <select
+              value={localFilters.genre}
+              onChange={(e) => handleFilterChange("genre", e.target.value)}
+              className="w-full rounded-lg border px-3 py-2 shadow-sm"
+            >
+              <option value="">Select Genre</option>
+              <option value="romance">Romance</option>
+              <option value="thriller">Thriller</option>
+              <option value="action">Action</option>
+              <option value="historical">Historical</option>
+              <option value="medical">Medical</option>
+              <option value="legal">Legal</option>
+              <option value="school">School</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="every day life">Every Day Life</option>
+            </select>
+          </div>
+
+          {/* Filter Year */}
+          <div className="mb-4 lg:mb-0 lg:flex-grow">
+            <label className="mb-1 block font-semibold">Year</label>
+            <input
+              type="number"
+              value={localFilters.year}
+              onChange={(e) => handleFilterChange("year", e.target.value)}
+              className="w-full rounded-lg border px-3 py-2 shadow-sm"
+              placeholder="Enter Year"
+            />
+          </div>
+
+          {/* Filter Rating */}
+          <div className="mb-4 lg:mb-0 lg:flex-grow">
+            <label className="mb-1 block font-semibold">Rating</label>
+            <input
+              type="number"
+              step="0.1"
+              min="0"
+              max="5"
+              value={localFilters.rating}
+              onChange={(e) => handleFilterChange("rating", e.target.value)}
+              className="w-full rounded-lg border px-3 py-2 shadow-sm"
+              placeholder="Enter Rating (0-5)"
+            />
+          </div>
+
+          {/* Apply Filters Button */}
+          <div className="lg:flex-grow">
+            <button
+              onClick={applyFilters}
+              className="w-full rounded-lg bg-purple-700 px-4 py-2 text-white shadow-md hover:bg-purple-800 lg:mt-6 lg:w-auto"
+            >
+              Apply Filters
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 FilterMenu.propTypes = {
-  isMenuOpen: PropTypes.bool.isRequired, // Whether the menu is open
-  toggleMenu: PropTypes.func.isRequired, // Toggles the menu visibility
-  onFilterApply: PropTypes.func.isRequired, // Sends filters to parent
+  isMenuOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
 };
 
 export default FilterMenu;
