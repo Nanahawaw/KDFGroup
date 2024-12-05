@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import logo from "../assets/Group .png";
 
 function SignUp({ nextPage }) {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -137,10 +139,17 @@ function SignUp({ nextPage }) {
     nextPage("logIn"); // this is the setPage callback from AuthPage
   };
 
+  const navigateHome = () => {
+    navigate("/Home");
+  };
+
   return (
     <div className="flex w-full items-center justify-center bg-white p-3 md:p-8">
       <form className="flex w-full max-w-[430px] flex-col justify-center">
-        <div className="justify-flex-start mb-8 flex">
+        <div
+          className="justify-flex-start mb-8 flex cursor-pointer"
+          onClick={navigateHome}
+        >
           <img src={logo} alt="K Logo" className="h-12 w-12" />
         </div>
         <h2 className="mb-4 text-5xl font-semibold">Sign Up</h2>
@@ -201,10 +210,19 @@ function SignUp({ nextPage }) {
         <p className="mt-6 text-center font-normal text-gray-500">
           Already have an account?{" "}
           <span
-            className="font-semibold text-purple-500 hover:bg-purple-700"
+            className="cursor-pointer font-semibold text-purple-500"
             onClick={handleLogIn}
           >
             Log in
+          </span>
+        </p>
+        <p className="mt-2 text-center font-normal text-gray-500">
+          Go back to{" "}
+          <span
+            className="cursor-pointer font-semibold text-purple-500"
+            onClick={navigateHome}
+          >
+            Home Page
           </span>
         </p>
       </form>
