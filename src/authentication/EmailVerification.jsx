@@ -1,78 +1,81 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import logo from "../assets/Group .png"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/Group .png";
 
 function EmailVerification() {
-  const [code, setCode] = useState(new Array(6).fill(""))
-  const [isVerified, setIsVerified] = useState(false)
-  const navigate = useNavigate()
+  const [code, setCode] = useState(new Array(6).fill(""));
+  const [isVerified, setIsVerified] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (element, index) => {
-    if (isNaN(element.value)) return
-    setCode([...code.map((d, idx) => (idx === index ? element.value : d))])
+    if (isNaN(element.value)) return;
+    setCode([...code.map((d, idx) => (idx === index ? element.value : d))]);
     if (element.nextSibling) {
-      element.nextSibling.focus()
+      element.nextSibling.focus();
     }
-  }
+  };
 
   const handleVerify = () => {
     // check code API
     // if response is successful:
 
-    setIsVerified(true)
-  }
-  const handleGoHome = () => {
-    navigate("/Home")
-  }
+    setIsVerified(true);
+  };
 
   const handleResendCode = () => {
     // resendCode API
     //should we add a rendered div that code has been sent again?
-  }
+  };
+  const navigateHome = () => {
+    navigate("/Home");
+  };
 
   return (
-    <div className="w-max flex items-center justify-center bg-white p-8">
-      <div className="w-[430px] h-[752px] flex flex-col ">
-        <div className="flex justify-flex-start mb-8">
-          <img src={logo} alt="K Logo" className="w-12 h-12" />
+    <div className="flex w-max items-center justify-center bg-white p-8">
+      <div className="flex h-[752px] w-[430px] flex-col">
+        <div
+          className="justify-flex-start mb-8 flex cursor-pointer"
+          onClick={navigateHome}
+        >
+          <img src={logo} alt="K Logo" className="h-12 w-12" />
         </div>
-        <h2 className="text-4xl font-semibold mb-8">Verify your e-mail</h2>
+        <h2 className="mb-8 text-4xl font-semibold">Verify your e-mail</h2>
         {!isVerified ? (
           <div className="flex flex-col justify-center">
-            <p className="mb-10 text-center text-gray-500 text-lg">
+            <p className="mb-10 text-center text-lg text-gray-500">
               Please check your mail and enter the 6 digit code that was sent to{" "}
               <span className="font-medium">abcd@gmail.com</span> below.
             </p>
-            <div className="flex justify-center mb-10 mt-10">
+            <div className="mb-10 mt-10 flex justify-center">
               {code.map((data, index) => {
                 return (
                   <input
                     key={index}
                     type="text"
                     maxLength="1"
-                    className="w-12 h-14 mx-2 text-center text-lg border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                    className="mx-2 h-14 w-12 rounded-md border border-gray-300 text-center text-lg focus:border-purple-500 focus:outline-none"
                     value={data}
                     onChange={(e) => handleChange(e.target, index)}
                     onFocus={(e) => e.target.select()}
                   />
-                )
+                );
               })}
             </div>
 
-            <p className="font-normal text-gray-500 mt-10 mb-10 text-center">
+            <p className="mb-10 mt-10 text-center font-normal text-gray-500">
               Did not receive the code?{" "}
               <span
-                className="text-purple-500 font-semibold hover:bg-purple-700"
+                className="cursor-pointer font-semibold text-purple-500 hover:bg-purple-700"
                 onClick={handleResendCode}
               >
                 Resend code
               </span>
             </p>
 
-            <div className="flex justify-center  mt-10">
+            <div className="mt-10 flex justify-center">
               <button
                 onClick={handleVerify}
-                className="bg-purple-500 text-white font-semibold py-2 px-6 rounded-md hover:bg-purple-700 focus:outline-none w-[430px] h-[52px]"
+                className="h-[52px] w-[430px] cursor-pointer rounded-md bg-purple-500 px-6 py-2 font-semibold text-white hover:bg-purple-700 focus:outline-none"
               >
                 Verify
               </button>
@@ -80,23 +83,23 @@ function EmailVerification() {
           </div>
         ) : (
           <div className="flex flex-col justify-center">
-            <p className="mb-10 text-center text-gray-500 text-2xl">
+            <p className="mb-10 text-center text-2xl text-gray-500">
               Your e-mail verification was successful. This will enable you:
             </p>
             <ul className="text-left">
               <li className="my-6 flex items-center">
-                <span className="w-3 h-3 mx-8 bg-purple-500 rounded-full"></span>
+                <span className="mx-8 h-3 w-3 rounded-full bg-purple-500"></span>
                 Reset your password at any time.
               </li>
               <li className="my-6 flex items-center">
-                <span className="w-3 h-3 mx-8 bg-purple-500 rounded-full"></span>
+                <span className="mx-8 h-3 w-3 rounded-full bg-purple-500"></span>
                 Get updates on latest gists on your favorite shows.
               </li>
             </ul>
             <div className="flex justify-center">
               <button
-                onClick={handleGoHome}
-                className="bg-purple-500 text-white font-semibold py-2 px-6 rounded-md hover:bg-purple-700 focus:outline-none w-[430px] h-[52px] mt-10"
+                onClick={navigateHome}
+                className="mt-10 h-[52px] w-[430px] cursor-pointer rounded-md bg-purple-500 px-6 py-2 font-semibold text-white hover:bg-purple-700 focus:outline-none"
               >
                 Go to Home
               </button>
@@ -105,7 +108,7 @@ function EmailVerification() {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default EmailVerification
+export default EmailVerification;
