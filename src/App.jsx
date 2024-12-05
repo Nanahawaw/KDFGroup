@@ -102,7 +102,6 @@ import TrendingNowPage from "./components/trendingNow/TrendingNowPage";
 import UserProfile from "./pages/UserProfile";
 import RecapsPageComponent from "./components/episodeRecaps/RecapsPageComponent";
 import MovieCatalogue from "./components/movieCatalogue/movieCatalogue";
-
 function App() {
   const location = useLocation();
   const showNavBarAndFooter =
