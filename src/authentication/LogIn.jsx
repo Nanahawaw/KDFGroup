@@ -140,10 +140,17 @@ function LogIn({ nextPage }) {
     nextPage("forgotPassword"); // this is the setPage callback from AuthPage
   };
 
+  const navigateHome = () => {
+    navigate("/Home");
+  };
+
   return (
-    <div className="flex items-center w-full justify-center bg-white p-3 md:p-8">
+    <div className="flex w-full items-center justify-center bg-white p-3 md:p-8">
       <form className="flex w-full max-w-[430px] flex-col justify-center">
-        <div className="justify-flex-start mb-8 flex">
+        <div
+          className="justify-flex-start mb-8 flex cursor-pointer"
+          onClick={navigateHome}
+        >
           <img src={logo} alt="K Logo" className="h-12 w-12" />
         </div>
         <h2 className="mb-4 text-5xl font-semibold">Login</h2>
@@ -177,7 +184,7 @@ function LogIn({ nextPage }) {
         )}
         <button
           onClick={handleSubmit}
-          className="mt-16 h-[52px] w-full rounded-md bg-purple-500 px-6 py-2 font-semibold text-white hover:bg-purple-700 focus:outline-none"
+          className="mt-16 h-[52px] w-full cursor-pointer rounded-md bg-purple-500 px-6 py-2 font-semibold text-white hover:bg-purple-700 focus:outline-none"
         >
           Login
         </button>
@@ -192,7 +199,7 @@ function LogIn({ nextPage }) {
         <p className="mt-6 text-center font-normal text-gray-500">
           Not registered yet?{" "}
           <span
-            className="font-semibold text-purple-500 hover:bg-purple-700"
+            className="cursor-pointer font-semibold text-purple-500"
             onClick={handleSignIn}
           >
             Sign up
@@ -201,10 +208,19 @@ function LogIn({ nextPage }) {
         <p className="mt-2 text-center font-normal text-gray-500">
           Forgot password?{" "}
           <span
-            className="font-semibold text-purple-500 hover:bg-purple-700"
+            className="cursor-pointer font-semibold text-purple-500"
             onClick={handleForgotPassword}
           >
             Recover
+          </span>
+        </p>
+        <p className="mt-2 text-center font-normal text-gray-500">
+          Go back to{" "}
+          <span
+            className="cursor-pointer font-semibold text-purple-500"
+            onClick={navigateHome}
+          >
+            Home Page
           </span>
         </p>
       </form>
