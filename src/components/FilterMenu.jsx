@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-function FilterMenu({ isMenuOpen, toggleMenu, onFilterChange }) {
+function FilterMenu({ isMenuOpen, toggleMenu, onApplyFilters }) {
   const [localFilters, setLocalFilters] = useState({
     type: "",
     genre: "",
@@ -14,7 +14,8 @@ function FilterMenu({ isMenuOpen, toggleMenu, onFilterChange }) {
   };
 
   const applyFilters = () => {
-    onFilterChange(localFilters);
+    onApplyFilters(localFilters); // Send filters to the parent component
+    toggleMenu(); // Close the menu
   };
 
   return (
@@ -112,7 +113,7 @@ function FilterMenu({ isMenuOpen, toggleMenu, onFilterChange }) {
           {/* Apply Filters Button */}
           <div className="lg:flex-grow">
             <button
-              onClick={applyFilters}
+              onClick={applyFilters} // Trigger filter application
               className="w-full rounded-lg bg-purple-700 px-4 py-2 text-white shadow-md hover:bg-purple-800 lg:mt-6 lg:w-auto"
             >
               Apply Filters
@@ -125,9 +126,9 @@ function FilterMenu({ isMenuOpen, toggleMenu, onFilterChange }) {
 }
 
 FilterMenu.propTypes = {
-  isMenuOpen: PropTypes.bool.isRequired,
-  toggleMenu: PropTypes.func.isRequired,
-  onFilterChange: PropTypes.func.isRequired,
+  isMenuOpen: PropTypes.bool.isRequired, // Controls the visibility of the menu
+  toggleMenu: PropTypes.func.isRequired, // Toggles the menu visibility
+  onApplyFilters: PropTypes.func.isRequired, // Sends applied filters to the parent
 };
 
 export default FilterMenu;

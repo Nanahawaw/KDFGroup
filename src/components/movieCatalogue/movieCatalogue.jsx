@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { dramasCatalogue } from "./movieCatalogueFakeProps"; // Hardcoded data
 import Search from "../Search";
-import FilterMenu from "../FilterMenu";
 
 function MovieCatalogue() {
-  const [dramas, setDramas] = useState([]); // Fetched dramas
+  const [dramas, setDramas] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dramasPerPage = 21; // Number of dramas per page
   // const [totalPages, setTotalPages] = useState(5); // Placeholder for total pages
 
@@ -37,22 +35,32 @@ function MovieCatalogue() {
     fetchDramas({ page: currentPage, search: searchQuery, filters });
   }, [currentPage, searchQuery, filters]);
 
+  // Handle search submission
+  const handleSearchSubmit = (query) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
+
+  // Handle filter application
+  const handleFiltersSubmit = (appliedFilters) => {
+    setFilters(appliedFilters);
+    setCurrentPage(1);
+  };
+
   // Handle pagination click
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  // Handle search submission
-  const handleSearchSubmit = (query) => {
-    setSearchQuery(query); // Update the search query
-    setCurrentPage(1); // Reset to the first page
-  };
+  // const handleSearchSubmit = (query) => {
+  //   setSearchQuery(query); // Update the search query
+  //   setCurrentPage(1); // Reset to the first page
+  // };
 
-  // Handle filter application
-  const handleFilterChange = (newFilters) => {
-    setFilters(newFilters); // Update filters
-    setCurrentPage(1); // Reset to the first page
-  };
+  // const handleFilterChange = (newFilters) => {
+  //   setFilters(newFilters); // Update filters
+  //   setCurrentPage(1); // Reset to the first page
+  // };
 
   return (
     <div className="mx-auto mt-20 flex max-w-full flex-col px-4 md:px-6 lg:px-8">
@@ -60,15 +68,9 @@ function MovieCatalogue() {
       <div className="mb-4 mt-4 w-full">
         <Search
           onSearchSubmit={handleSearchSubmit}
-          toggleMenu={() => setIsMenuOpen(!isMenuOpen)}
+          onFiltersSubmit={handleFiltersSubmit}
         />
       </div>
-
-      <FilterMenu
-        isMenuOpen={isMenuOpen}
-        toggleMenu={() => setIsMenuOpen(false)}
-        onFilterApply={handleFilterChange}
-      />
 
       {/* Dramas Grid */}
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
