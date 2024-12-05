@@ -50,28 +50,26 @@ function NavBar() {
           <img alt="" src={assets} />
           <h1>KDFG</h1>
         </Link>
-        <div className="hidden leading-[22.4px] p-1 sm:gap-[12px] md:text-[15px]  lg:flex lg:gap-[40px] lg:text-[15px]">
+        <div className="hidden p-1 leading-[22.4px] sm:gap-[12px] md:text-[15px] lg:flex lg:gap-[40px] lg:text-[15px]">
           <Link to="/TrendingNow">Trending Now</Link>
           <Link to="/Community">Community</Link>
           <Link to="/RecapsPage">Episode Recaps</Link>
           <Link to="/AboutUs">About Us</Link>
+          <Link to="/MovieCatalogue">Movie Catalogue</Link>
         </div>
-          <div>
-          <form
-  className="flex md:flex-row-reverse h-[38px] w-full md:w-[210px] items-center justify-between  rounded-md md:border p-4 outline-none md:gap-1"
->
-  <input
-    placeholder="Search"
-    className="w-full border-none  text-[15px] outline-none placeholder-transparent md:placeholder:text-black text-right md:text-left"
-  />
-  <img alt="" src={octicon} className="md:pl-1" />
-</form>
-
-          </div>
-        <div className="hidden items-center gap- lg:flex">
+        <div>
+          <form className="flex h-[38px] w-full items-center justify-between rounded-md p-4 outline-none md:w-[210px] md:flex-row-reverse md:gap-1 md:border">
+            <input
+              placeholder="Search"
+              className="w-full border-none text-right text-[15px] placeholder-transparent outline-none md:text-left md:placeholder:text-black"
+            />
+            <img alt="" src={octicon} className="md:pl-1" />
+          </form>
+        </div>
+        <div className="gap- hidden items-center lg:flex">
           <div onClick={toggleDropdown} ref={dropdownRef} className="relative">
             <div className="flex gap-1">
-              <button className="h-[48px] md:w-[148px] rounded-md border bg-[#7F56DA] text-white">
+              <button className="h-[48px] rounded-md border bg-[#7F56DA] text-white md:w-[148px]">
                 Get Started
               </button>
             </div>
@@ -119,8 +117,11 @@ function NavBar() {
         <div className="fixed inset-0 z-10 flex justify-end bg-gray-800 bg-opacity-50">
           <div className="w-[100%] bg-white p-6">
             <div className="flex items-center justify-between">
-              <div className="flex justify-center items-center"> <img alt="" src={assets} />
-              <h2>KDFG</h2></div>
+              <div className="flex items-center justify-center">
+                {" "}
+                <img alt="" src={assets} />
+                <h2>KDFG</h2>
+              </div>
               <button onClick={() => setMobileMenuOpen(false)}>
                 <FontAwesomeIcon icon={faXmark} />
               </button>
@@ -153,6 +154,13 @@ function NavBar() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About Us
+              </Link>
+              <Link
+                to="/MovieCatalogue"
+                className="block py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Movie Catalogue
               </Link>
               <div className="mt-4 flex justify-around">
                 <div className="flex w-[100%] justify-between">
