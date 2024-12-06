@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-function FilterMenu({ isMenuOpen, toggleMenu, onApplyFilters }) {
+function FilterMenu({ onApplyFilters }) {
   const [localFilters, setLocalFilters] = useState({
     type: "",
     genre: "",
@@ -14,39 +14,20 @@ function FilterMenu({ isMenuOpen, toggleMenu, onApplyFilters }) {
   };
 
   const applyFilters = () => {
-    onApplyFilters(localFilters); // Send filters to the parent component
-    toggleMenu(); // Close the menu
+    onApplyFilters(localFilters);
   };
 
   return (
-    <div
-      className={`fixed inset-x-0 top-36 z-50 mx-auto w-full max-w-7xl px-4 transition-all duration-300 ${
-        isMenuOpen
-          ? "translate-y-0 opacity-100"
-          : "pointer-events-none -translate-y-10 opacity-0"
-      }`}
-    >
-      <div
-        className="relative w-full rounded-lg bg-white p-4 shadow-lg"
-        style={{
-          transition: "transform 0.3s ease, opacity 0.3s ease",
-        }}
-      >
+    <div className="w-full max-w-7xl px-2">
+      <div className="relative w-full rounded-lg bg-white p-4 shadow-lg">
         {/* Header */}
         <div className="mb-4 flex items-center justify-between border-b pb-2">
-          <h3 className="text-lg font-semibold">Filters</h3>
-          <button
-            onClick={toggleMenu}
-            className="rounded bg-gray-200 p-2 text-sm hover:bg-gray-300"
-          >
-            ✕
-          </button>
+          <h3 className="text-lg font-semibold text-[#7F56DA]">Filters</h3>
+          {/* The close button is controlled by parent; we don’t close here */}
         </div>
 
         {/* Filter Options */}
-        <div
-          className={`flex flex-col lg:flex-row lg:items-center lg:space-x-4`}
-        >
+        <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-4">
           {/* Filter Type */}
           <div className="mb-4 lg:mb-0 lg:flex-grow">
             <label className="mb-1 block font-semibold">Type</label>
@@ -105,7 +86,7 @@ function FilterMenu({ isMenuOpen, toggleMenu, onApplyFilters }) {
               max="5"
               value={localFilters.rating}
               onChange={(e) => handleFilterChange("rating", e.target.value)}
-              className="w-full rounded-lg border px-3 py-2 shadow-sm"
+              className="w-full min-w-[200px] rounded-lg border px-3 py-2 shadow-sm"
               placeholder="Enter Rating (0-5)"
             />
           </div>
@@ -113,8 +94,8 @@ function FilterMenu({ isMenuOpen, toggleMenu, onApplyFilters }) {
           {/* Apply Filters Button */}
           <div className="lg:flex-grow">
             <button
-              onClick={applyFilters} // Trigger filter application
-              className="w-full rounded-lg bg-purple-700 px-4 py-2 text-white shadow-md hover:bg-purple-800 lg:mt-6 lg:w-auto"
+              onClick={applyFilters}
+              className="w-full rounded-lg bg-[#7F56DA] px-4 py-2 text-white shadow-md hover:bg-purple-800 lg:mt-6 lg:w-auto"
             >
               Apply Filters
             </button>
@@ -126,9 +107,7 @@ function FilterMenu({ isMenuOpen, toggleMenu, onApplyFilters }) {
 }
 
 FilterMenu.propTypes = {
-  isMenuOpen: PropTypes.bool.isRequired, // Controls the visibility of the menu
-  toggleMenu: PropTypes.func.isRequired, // Toggles the menu visibility
-  onApplyFilters: PropTypes.func.isRequired, // Sends applied filters to the parent
+  onApplyFilters: PropTypes.func.isRequired,
 };
 
 export default FilterMenu;

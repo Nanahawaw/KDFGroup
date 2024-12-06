@@ -10,24 +10,47 @@ function MovieCatalogue() {
   const dramasPerPage = 21; // Number of dramas per page
   // const [totalPages, setTotalPages] = useState(5); // Placeholder for total pages
 
-  // Function to fetch dramas (simulates API call)
+  // Fetch dramas (simulate API call) and apply filtering logic
   const fetchDramas = async (params) => {
-    console.log("Fetching dramas with params:", params); // Debugging log
-    // Simulate backend filtering, pagination, and search
+    const { search, filters, page } = params;
+
     const filteredDramas = dramasCatalogue.filter((drama) => {
       const matchesSearch =
-        !params.search ||
-        drama.title.toLowerCase().includes(params.search.toLowerCase());
-      const matchesGenre =
-        !params.filters.genre || drama.genre === params.filters.genre;
-      return matchesSearch && matchesGenre;
+        !search || drama.title.toLowerCase().includes(search.toLowerCase());
+
+      const matchesGenre = !filters.genre || drama.genre === filters.genre;
+
+      const matchesType = !filters.type || drama.type === filters.type;
+
+      const matchesYear =
+        !filters.year || parseInt(filters.year, 10) === drama.year;
+
+      const matchesRating =
+        !filters.rating ||
+        (parseFloat(filters.rating) <= 5 &&
+          parseFloat(filters.rating) >= 0 &&
+          drama.rating >= parseFloat(filters.rating));
+
+      return (
+        matchesSearch &&
+        matchesGenre &&
+        matchesType &&
+        matchesYear &&
+        matchesRating
+      );
     });
+
+    // const totalPages = Math.ceil(filteredDramas.length / dramasPerPage);
     const paginatedDramas = filteredDramas.slice(
-      (params.page - 1) * dramasPerPage,
-      params.page * dramasPerPage,
+      (page - 1) * dramasPerPage,
+      page * dramasPerPage,
     );
+
     setDramas(paginatedDramas);
-    // setTotalPages(Math.ceil(filteredDramas.length / dramasPerPage));
+
+    // If you want to show pagination dynamically, you'd store totalPages in state:
+    // setTotalPages(totalPages);
+    // For simplicity, we’ll just rely on a fixed pagination range or you can dynamically render pagination buttons.
   };
 
   // Fetch dramas on component mount or when filters change
@@ -52,16 +75,6 @@ function MovieCatalogue() {
     setCurrentPage(pageNumber);
   };
 
-  // const handleSearchSubmit = (query) => {
-  //   setSearchQuery(query); // Update the search query
-  //   setCurrentPage(1); // Reset to the first page
-  // };
-
-  // const handleFilterChange = (newFilters) => {
-  //   setFilters(newFilters); // Update filters
-  //   setCurrentPage(1); // Reset to the first page
-  // };
-
   return (
     <div className="mx-auto mt-20 flex max-w-full flex-col px-4 md:px-6 lg:px-8">
       {/* Search and Filter */}
@@ -84,10 +97,6 @@ function MovieCatalogue() {
               alt={drama.title}
               className="h-auto w-full object-cover"
             />
-            {/* <div className="p-4">
-              <h3 className="font-bold">{drama.title}</h3>
-              <p className="text-sm text-gray-500">{drama.genre}</p>
-            </div> */}
           </div>
         ))}
       </div>

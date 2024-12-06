@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import octicon from "../assets/octicon.png";
-import FilterMenu from "./FilterMenu"; // Import the FilterMenu component
+import FilterMenu from "./FilterMenu";
 
 function Search({ onSearchSubmit, onFiltersSubmit }) {
   const [localSearchQuery, setLocalSearchQuery] = useState("");
@@ -9,24 +9,24 @@ function Search({ onSearchSubmit, onFiltersSubmit }) {
 
   const handleSearchClick = () => {
     if (localSearchQuery.trim()) {
-      onSearchSubmit(localSearchQuery); // Trigger search only if input is valid
+      onSearchSubmit(localSearchQuery);
     }
   };
 
   const handleApplyFilters = (appliedFilters) => {
-    onFiltersSubmit(appliedFilters); // Send the filters to the parent component
-    setIsFilterOpen(false); // Close the filter menu
+    onFiltersSubmit(appliedFilters);
+    setIsFilterOpen(false); // close the filter after applying
   };
 
   return (
     <div className="relative flex flex-col">
       {/* Search Bar */}
-      <div className="flex items-center justify-between space-x-4">
+      <div className={`flex items-center justify-between space-x-4`}>
         <form
           className="flex h-10 flex-grow items-center rounded-[10px] border border-gray-300 px-3"
           onSubmit={(e) => {
             e.preventDefault();
-            handleSearchClick(); // Trigger search on form submit
+            handleSearchClick();
           }}
         >
           <input
@@ -43,34 +43,32 @@ function Search({ onSearchSubmit, onFiltersSubmit }) {
           />
         </form>
         <button
-          onClick={() => setIsFilterOpen(!isFilterOpen)} // Toggle filter dropdown
-          className="h-10 rounded bg-purple-700 px-4 py-2 text-sm text-white"
+          onClick={() => setIsFilterOpen(!isFilterOpen)}
+          className="h-10 rounded bg-[#7F56DA] px-4 py-2 text-sm text-white"
         >
           Filter
         </button>
       </div>
 
-      {/* Filter Menu */}
+      {/* Filter Menu Container with smoother animation */}
       <div
-        className={`absolute left-0 right-0 top-full z-50 mt-2 rounded-lg bg-white shadow-lg transition-all duration-300 ${
-          isFilterOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isFilterOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
-        {isFilterOpen && (
-          <FilterMenu
-            isMenuOpen={isFilterOpen} // Pass the isFilterOpen state
-            toggleMenu={() => setIsFilterOpen(false)}
-            onApplyFilters={handleApplyFilters} // Pass the apply filters handler
-          />
-        )}
+        <div className="relative mt-2 rounded-lg bg-white p-4 shadow-lg">
+          {/* A close button inside, if desired */}
+
+          <FilterMenu onApplyFilters={handleApplyFilters} />
+        </div>
       </div>
     </div>
   );
 }
 
 Search.propTypes = {
-  onSearchSubmit: PropTypes.func.isRequired, // Triggered when the search query is submitted
-  onFiltersSubmit: PropTypes.func.isRequired, // Triggered when filters are applied
+  onSearchSubmit: PropTypes.func.isRequired,
+  onFiltersSubmit: PropTypes.func.isRequired,
 };
 
 export default Search;
