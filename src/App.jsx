@@ -101,10 +101,11 @@ import EpisodeRecapsPage from "./components/episodeRecaps/EpisodeRecapsPage";
 import TrendingNowPage from "./components/trendingNow/TrendingNowPage";
 import UserProfile from "./pages/UserProfile";
 import RecapsPageComponent from "./components/episodeRecaps/RecapsPageComponent";
-
+import MovieCatalogue from "./components/movieCatalogue/movieCatalogue";
 function App() {
   const location = useLocation();
-  const showNavBarAndFooter = location.pathname !== "/UserProfile" && location.pathname !== "/Auth";
+  const showNavBarAndFooter =
+    location.pathname !== "/UserProfile" && location.pathname !== "/Auth";
 
   return (
     <div className="m-0 grid min-h-screen">
@@ -121,6 +122,7 @@ function App() {
           <Route path="/Community" element={<CommunityPage />} />
           <Route path="/HighestRated" element={<HighestRatedPage />} />
           <Route path="/UserProfile" element={<UserProfile />} />
+          <Route path="/MovieCatalogue" element={<MovieCatalogue />} />
         </Routes>
       </div>
       {showNavBarAndFooter && <Footer />}

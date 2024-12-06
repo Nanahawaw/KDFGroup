@@ -80,7 +80,7 @@ function TrendingNowPage() {
           <button
             key={number}
             onClick={() => paginate(number)}
-            className={`mx-1 px-2 py-1 text-xs md:px-4 md:py-2 md:text-base ${
+            className={`mx-1 cursor-pointer px-2 py-1 text-xs md:px-4 md:py-2 md:text-base ${
               currentPage === number
                 ? "border-b-4 border-purple-700 text-black"
                 : "text-gray-500"
@@ -91,7 +91,7 @@ function TrendingNowPage() {
         ))}
         <button
           onClick={() => paginate(currentPage + 1)}
-          className="mx-1 px-2 py-1 text-xs text-gray-500 md:px-4 md:py-2"
+          className="mx-1 cursor-pointer px-2 py-1 text-xs text-gray-500 md:px-4 md:py-2"
         >
           next
         </button>
